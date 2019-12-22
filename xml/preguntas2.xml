@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItems>
+	<assessmentItem subject="Web" author="jvadillo001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Tag HTML para añadir un formulario</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				FORM
+			</value>
+		</correctResponse>
+		<incorrectResponses>
+			<value> OBJECT </value>
+			<value> TABLE </value>
+			<value> DIV </value>
+		</incorrectResponses>
+	</assessmentItem>
+		<assessmentItem subject="Internet" author="rarruabarrena001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Este protocolo acabará funcionando
+			incluso entre dos latas unidas por un cordón</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				TCP/IP
+			</value>
+		</correctResponse>
+		<incorrectResponses>
+			<value> HTTP </value>
+			<value> SMTP </value>
+			<value> Ninguna es correcta </value>
+		</incorrectResponses>
+	</assessmentItem>
+<assessmentItem subject="" author=""><itemBody><p/></itemBody><correctResponse><value/></correctResponse><incorrectResponses><value/><value/><value/></incorrectResponses></assessmentItem></assessmentItems>
