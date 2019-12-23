@@ -4,7 +4,7 @@
 
     $ticket = "1010";
     
-    $soapclient = new nusoap_client('https://'.$_SERVER['HTTP_HOST'].'/ProyectoWS19G18/lib/verifyPassWS.php?wsdl',true);
+    $soapclient = new nusoap_client('https://'.$_SERVER['HTTP_HOST'].'/ProyectoWS812P/lib/verifyPassWS.php?wsdl',true);
 
     $err = $soapclient->getError();
     if($err){   echo 'Error al crear el cliente: '.$err;    }
