@@ -18,6 +18,7 @@
             <p>Contraseña: *</p>
             <input type="password" size="60" id="pass" name="pass" required>
             <p> <input type="submit" id="submit" value="Enviar"> <input type="reset" value="Limpiar"></p>
+            <p>Si no recuerdas tu contraseña haz click <a href="RestorePass.php">aqui.</a></p>
         </form>
       </div>
       

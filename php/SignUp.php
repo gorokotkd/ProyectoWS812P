@@ -100,7 +100,7 @@
             $resul = mysqli_query($mysqli,$sql,MYSQLI_USE_RESULT);
             if(!$resul)
             {
-                die("<h4 style=\"color: red\">Ese email ya esta en uso.</h4><p>Si no recuerdas la contraseña de tu email pulsa en este <a href=\"#\">enlace</a> para restablecerla.</p>");
+                die("<h4 style=\"color: red\">Ese email ya esta en uso.</h4><p>Si no recuerdas la contraseña de tu email pulsa en este <a href=\"RestorePass.php\">enlace</a> para restablecerla.</p>");
             }
 
             $contenido_imagen = base64_encode(file_get_contents($image));
