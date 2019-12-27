@@ -17,10 +17,12 @@
     <script src="../js/jquery-3.4.1.min.js"></script>
 
 <?php
+    
     if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
         $img = getImagenDeBD();
-        echo "<script>inicioSesion(\"".$img."\",\"".$email."\",\"".$_SESSION['tipo']."\");</script>";
+       // echo "<script>inicioSesion(\"".addslashes($img)."\",\"".$email."\",\"".$_SESSION['tipo']."\");</script>";
+        echo "<script>inicioSesion('".addslashes($img)."','".addslashes($email)."','".addslashes($_SESSION['tipo'])."');</script>";
     }else{
 
         echo "<script>cierreSesion();</script>";

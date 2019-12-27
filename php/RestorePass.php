@@ -30,12 +30,10 @@
                 $_SESSION['codigo'] = $cod;
                 $_SESSION['email_rec'] = $_REQUEST['email'];
 
-                $msg = "<html><head><title>Recuperacion de Contraseña.</title></head><body><p>Hemos detectado una solicitud de restablecimiento de contraseña,
-                si es correcta haz click en el siguiente <a href=\"https://sw19-20.000webhostapp.com/ProyectoWS19G18/php/NewPassForm.php?cod={$cod}&email={$email}\">enlace.</a></p>
-                <p>Si no es correcto pongase en contacto con el <a href=\"mailto:galvarez024@ikasle.ehu.eus\">administrador.</a></p></body></html>";
+                $msg = "<html><head><title>Recuperacion de Contraseña.</title></head><body><p>Hemos detectado una solicitud de restablecimiento de contraseña, si es correcta haz click en el siguiente <a href=\"https://sw19-20.000webhostapp.com/ProyectoWS19G18/php/NewPassForm.php?cod={$cod}&email={$email}\">enlace.</a></p><p>Si no es correcto pongase en contacto con el <a href=\"mailto:galvarez024@ikasle.ehu.eus\">administrador.</a></p></body></html>";
 
-                $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                $cabeceras = "MIME-Version: 1.0" . "\r\n";
+                $cabeceras .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                 $tema = "Recuperacion Contraseña Quiz.";
                 mail($email,$tema,$msg,$cabeceras);

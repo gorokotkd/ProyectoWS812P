@@ -45,17 +45,16 @@
                 $row = mysqli_fetch_array($resultado);
                 if(($row['email']==$email)and(hash_equals($row['pass'],crypt($pass,$row['pass'])))){
                     if($row['activo']){
-                        session_start();
+                        //session_start();
 
                         $_SESSION['identificado']="SI";
                         $_SESSION['email'] = $row['email'];
-
                         if($row['email'] == "admin@ehu.es"){
                             $_SESSION['tipo'] = "admin";
                         }else{
                             $_SESSION['tipo'] = "user";
                         }
-
+                        
                         echo "<script>
                         alert('Inicio de sesion realizado correctamente. Pulsa aceptar para acceder a la pantalla principal.');
                         window.location.href='IncreaseGlobalCounter.php';
