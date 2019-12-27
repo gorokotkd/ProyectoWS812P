@@ -23,7 +23,7 @@
             <h4>Repite la Contraseña:*</h4>
             <input type="password" size="30" name="pass2" id="pass2" required/><br>
             <div id="pass2-div"></div>
-            <button id="enviar">Enviar</button>
+            <button id="enviar" disabled>Enviar</button>
             <div id="resul"></div>
             </form>
         </section>
