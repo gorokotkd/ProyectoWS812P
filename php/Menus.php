@@ -15,14 +15,23 @@
     <span><a href='Credits.php'>Creditos</a></span>
 </nav>
     <script src="../js/jquery-3.4.1.min.js"></script>
-
 <?php
     
     if(isset($_SESSION['email'])){
-        $email = $_SESSION['email'];
-        $img = getImagenDeBD();
-       // echo "<script>inicioSesion(\"".addslashes($img)."\",\"".$email."\",\"".$_SESSION['tipo']."\");</script>";
-        echo "<script>inicioSesion('".addslashes($img)."','".addslashes($email)."','".addslashes($_SESSION['tipo'])."');</script>";
+        //Comprobamos si el usuario es de google o de la pagina.
+        //Si es un usuario de google le pasaremos true como parametro en el metodo inicioSesion().
+        if(isset($_SESSION['img_google'])){
+            $email = $_SESSION['email'];
+            $img = $_SESSION['img_google'];
+            echo "<script>inicioSesion('".addslashes($img)."','".addslashes($email)."','".addslashes($_SESSION['tipo'])."',true);</script>";
+        }else{
+            $email = $_SESSION['email'];
+            $img = getImagenDeBD();
+            echo "<script>inicioSesion('".addslashes($img)."','".addslashes($email)."','".addslashes($_SESSION['tipo'])."',false);</script>";
+        }
+        
+        
+        
     }else{
 
         echo "<script>cierreSesion();</script>";
