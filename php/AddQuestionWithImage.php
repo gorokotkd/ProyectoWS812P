@@ -39,7 +39,7 @@
                                 $contenido_imagen = base64_encode(file_get_contents($image));
                             }
                             
-                            
+                            $sql = "INSERT INTO preguntas(email, enunciado, respuestac, respuestai1, respuestai2, respuestai3, complejidad, tema, imagen) VALUES('$email', '$enunciado', '$respuestac', '$respuestai1', '$respuestai2', '$respuestai3', $complejidad, '$tema', '$contenido_imagen')";
 
 
                             if(!mysqli_query($mysqli,$sql))
