@@ -8,7 +8,9 @@ function inicioSesion(img,email,tipo,google){
        
     $('#register').hide();
     $('#login').hide();
+    $('#login-google').remove();
     $('#logout').show();
+
     
     
     

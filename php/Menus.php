@@ -4,7 +4,8 @@
     <header class='main' id='h1'>
         <span class="right" id="register"><a href="SignUp.php">Registro</a></span>
         <span class="right" id="login"><a href="LogIn.php">Login</a></span>
-        <span class="right" id="logout" style="display:none;"><a href="DecreaseGlobalCounter.php">Logout</a></span>
+        <span class="right" id="login-google"><div style="margin-left: 46.9%"><div class="g-signin2" data-onsuccess="onSuccess"></div></div></span>
+        <span class="right" id="logout" style="display:none;" onclick="signOut()"><a href="DecreaseGlobalCounter.php">Logout</a></span>
 
 </header>
 <nav class='main' id='n1' role='navigation'>
@@ -15,6 +16,45 @@
     <span><a href='Credits.php'>Creditos</a></span>
 </nav>
     <script src="../js/jquery-3.4.1.min.js"></script>
+
+        
+        <!--    Script Para iniciar sesion con google.  -->
+    <script>
+
+        function signOut(){
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log("Signed Out from Google.");
+            });
+            
+        }
+        function onSuccess(googleUser) {
+            //gapi.auth2.init();
+            var profile = googleUser.getBasicProfile();
+            $.ajax({
+                type: "GET",
+                url: "LogIn.php?dirCorreo="+profile.getEmail()+"&google=OK&img="+profile.getImageUrl(),
+                success: function (response) {
+                    alert('Inicio de sesion realizado correctamente. Pulsa aceptar para acceder a la pantalla principal.');
+                    window.location.href='IncreaseGlobalCounter.php';
+                }
+            });
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+
+        function init() {
+            gapi.load('auth2', function() {
+            gapi.auth2.init();
+            
+            });
+        }
+    </script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+
+
 <?php
     
     if(isset($_SESSION['email'])){

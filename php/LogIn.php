@@ -2,47 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="google-signin-client_id" content="482385241484-3t98l5bcobkq6mifve3dv5kcgr9gei7n.apps.googleusercontent.com">
-   
   <?php include '../html/Head.html'?>
-  
-  <script>
-    function onSuccess(googleUser) {
-            gapi.auth2.init();
-            var profile = googleUser.getBasicProfile();
-            $.ajax({
-                type: "GET",
-                url: "LogIn.php?dirCorreo="+profile.getEmail()+"&google=OK&img="+profile.getImageUrl(),
-                success: function (response) {
-                    alert('Inicio de sesion realizado correctamente. Pulsa aceptar para acceder a la pantalla principal.');
-                    window.location.href='IncreaseGlobalCounter.php';
-                }
-            });
-        }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-
-    gapi.load('auth2', function() {
-        gapi.auth2.init({client_id: '482385241484-3t98l5bcobkq6mifve3dv5kcgr9gei7n.apps.googleusercontent.com'});
-    });
-
-      
-    }
-  </script>
-
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -59,7 +19,6 @@
             <input type="password" size="60" id="pass" name="pass" required>
             <p> <input type="submit" id="submit" value="Enviar"> <input type="reset" value="Limpiar"></p>
             <p>Si no recuerdas tu contraseña haz click <a href="RestorePass.php">aqui.</a></p>
-            <div style="margin-left: 638.2px"><div id="my-signin2"></div></div>
         </form>
       </div>
     </div>
