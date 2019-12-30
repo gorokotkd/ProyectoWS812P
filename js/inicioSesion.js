@@ -2,11 +2,11 @@ function inicioSesion(img,email,tipo,google){
     if(tipo=="user"){
         $('#id-question').show();
         $('#questions').show();
-        $('#jugar').show();
+        
     }else{
         $('#users').show();
     }
-       
+    $('#jugar').hide();
     $('#register').hide();
     $('#login').hide();
     $('#login-google').remove();

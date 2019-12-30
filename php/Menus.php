@@ -11,7 +11,7 @@
 <nav class='main' id='n1' role='navigation'>
     <span><a href='Layout.php'>Inicio</a></span>
     <span id="users" style="display:none"><a href='HandlingAccounts.php'> Gestionar Usuarios</a></span>
-    <span id="jugar" style="display:none"><a href='Jugar.php'>A jugar!</a></span>
+    <span id="jugar"><a href='Jugar.php'>A jugar!</a></span>
     <span id="questions" style="display:none"><a href='HandlingQuizesAjax.php'> Gestionar Preguntas</a></span>
     <span id="id-question" style="display:none"><a href='ClientGetQuestion.php'> Obtener Datos Preguntas</a></span>
     <span><a href='Credits.php'>Creditos</a></span>

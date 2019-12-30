@@ -1,6 +1,6 @@
 function cierreSesion(){
     $('#questions').hide();
-    $('#jugar').hide();
+    $('#jugar').show();
     $('#register').show();
     $('#login').show();
     $('#login-google').show();

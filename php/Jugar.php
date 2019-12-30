@@ -1,5 +1,5 @@
 <?php
-    include 'Seguridad.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
