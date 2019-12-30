@@ -17,7 +17,9 @@
         <input type="text" hidden id="claves-preguntas" value=<?php echo clavesPreguntas();?>>
       </div>
       <div id="juego">
-      <div>
+      </div>
+      <div id="resul">
+      </div>
 
       <?php
         function clavesPreguntas(){

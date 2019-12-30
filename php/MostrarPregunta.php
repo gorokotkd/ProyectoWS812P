@@ -81,7 +81,11 @@
                     <td><input type=\"radio\" name=\"respuesta\" value=\"{$row['respuestac']}\">{$row['respuestac']}</td>
                 </tr>";
         }
+        echo "<tr style=\"text-align: center\">
+                <td colspan=\"4\"><input type=\"button\" id=\"submit\" value=\"Enviar Respuesta\" onclick=\"comprobar({$_REQUEST['id']})\">
+            </tr>";
         echo "</table>";
+
         
     }else{
         echo "<h3 style='color: red'>Necesaria la id de la pregunta</h3>";
