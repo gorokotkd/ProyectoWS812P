@@ -15,6 +15,9 @@
         </div>
         <div id="error"></div>
         <div>
+        <form>
+            <h4>Introduce tu nickname para jugar (Opcional):</h4>
+            <input type="text" size="30" id="nickname" value="" maxlength="20">
             <h5>Elige uno de los siguientes temas:</h5>
             <?php
                 include 'DbConfig.php';
@@ -41,6 +44,7 @@
                 }
                 echo"</select>";
             ?>
+        </form>
         </div>
         <div>
             <img id="jugar" src="../images/jugar.png" height="30%" width="30%" onclick="temaSeleccionado()">

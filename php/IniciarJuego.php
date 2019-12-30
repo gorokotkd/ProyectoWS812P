@@ -15,6 +15,7 @@
         <h2>Quiz: el juego de las preguntas</h2>
         <h4>Tema Seleccionado: <span id="tema"><?php echo $_REQUEST['tema'];?></span></h4>
         <input type="text" hidden id="claves-preguntas" value=<?php echo clavesPreguntas();?>>
+        <input type="text" hidden id="nickname" value=<?php echo $_REQUEST['nickname']?>>
       </div>
       <div id="juego">
       </div>
