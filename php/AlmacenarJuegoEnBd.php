@@ -13,12 +13,13 @@
         }else{
             $nickname = "anonimo";
         }
+        $tema = $_REQUEST['tema'];
         $aciertos = $_REQUEST['aciertos'];
         $errores = $_REQUEST['errores'];
         $hoy = date("d-m-Y");
 		//Creamos la consulta que introducira los datos en el servidor
     
-        $sql = "INSERT INTO juego(nickname, aciertos, fallos, fecha) VALUES('$nickname', '$aciertos', '$errores','$hoy')";
+        $sql = "INSERT INTO juego(nickname, tema, aciertos, fallos, fecha) VALUES('$nickname', '$tema', '$aciertos', '$errores','$hoy')";
     
         if(!mysqli_query($mysqli,$sql))
         {
