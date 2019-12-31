@@ -21,7 +21,31 @@
       </div>
       <div id="resul">
       </div>
+      <?php
 
+        if(isset($_REQUEST['nickname'])){
+          if($_REQUEST['nickname'] != ""){
+            include 'DbConfig.php';
+
+            $mysqli = mysqli_connect($server,$user,$pass,$basededatos);
+            if(!$mysqli){
+                die("Fallo al conectar con Mysql: ".mysqli_connect_error());
+            }
+            
+            $sql = "SELECT * FROM juego WHERE nickname='{$_REQUEST['nickname']}';";
+            
+            $resultado = mysqli_query($mysqli,$sql);
+            if($resultado){
+              echo "<script>
+                alert('El nombre de usuario introducido ya esta en uso, introduce uno diferente para continuar.');
+                window.location.href='Jugar.php';
+              </script>"; 
+            }
+          }
+
+            
+        }
+      ?>
       <?php
         function clavesPreguntas(){
             include 'DbConfig.php';

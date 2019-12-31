@@ -6,6 +6,7 @@ function inicioSesion(img,email,tipo,google){
     }else{
         $('#users').show();
     }
+    
     $('#jugar').hide();
     $('#register').hide();
     $('#login').hide();

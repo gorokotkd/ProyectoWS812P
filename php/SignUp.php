@@ -98,7 +98,7 @@
             //Comprobamos si existe un usuario con ese email.
             $sql = "SELECT FROM usuarios where email='{$email}';";
             $resul = mysqli_query($mysqli,$sql,MYSQLI_USE_RESULT);
-            if(!$resul)
+            if($resul)
             {
                 die("<h4 style=\"color: red\">Ese email ya esta en uso.</h4><p>Si no recuerdas la contraseña de tu email pulsa en este <a href=\"RestorePass.php\">enlace</a> para restablecerla.</p>");
             }

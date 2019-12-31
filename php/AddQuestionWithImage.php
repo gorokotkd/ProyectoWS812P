@@ -11,9 +11,9 @@
     <div>
          <?php
             if(isset($_REQUEST['dirCorreo'])){
-                $regexMail="/((^[a-zA-Z]+(([0-9]{3})+@ikasle\.ehu\.(eus|es))$)|^[a-zA-Z]+(\.[a-zA-Z]+@ehu\.(eus|es)|@ehu\.(eus|es))$)/";
-                $regexPreg="/^.{10,}$/";
-                 if(preg_match($regexMail,$_REQUEST['dirCorreo'])){
+              //  $regexMail="/((^[a-zA-Z]+(([0-9]{3})+@ikasle\.ehu\.(eus|es))$)|^[a-zA-Z]+(\.[a-zA-Z]+@ehu\.(eus|es)|@ehu\.(eus|es))$)/";
+              //  $regexPreg="/^.{10,}$/";
+               //  if(preg_match($regexMail,$_REQUEST['dirCorreo'])){
                      if(preg_match($regexPreg,$_REQUEST['nombrePregunta'])){
                             include 'DbConfig.php';
                             //Creamos la conexion con la BD.
@@ -54,10 +54,10 @@
                          echo "El enunciado de la pregunta debe tener mas de 10 caracteres.<br>";
                          /* echo"<a href='javascript:history.back()'>Volver al formulario.</a>"; */
                      }
-                 }else{
+              /*   }else{
                     echo "El correo electronico no es correcto.<br>";
-                    /* echo"<a href='javascript:history.back()'>Volver al formulario.</a>"; */
-                 }
+                     echo"<a href='javascript:history.back()'>Volver al formulario.</a>"; 
+                 }*/
             }          
           ?>
     </div>
