@@ -35,7 +35,8 @@
             $sql = "SELECT * FROM juego WHERE nickname='{$_REQUEST['nickname']}';";
             
             $resultado = mysqli_query($mysqli,$sql);
-            if($resultado){
+            $num_rows = $resultado->num_rows;
+            if($num_rows>0){
               echo "<script>
                 alert('El nombre de usuario introducido ya esta en uso, introduce uno diferente para continuar.');
                 window.location.href='Jugar.php';

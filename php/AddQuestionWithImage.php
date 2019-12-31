@@ -12,7 +12,7 @@
          <?php
             if(isset($_REQUEST['dirCorreo'])){
               //  $regexMail="/((^[a-zA-Z]+(([0-9]{3})+@ikasle\.ehu\.(eus|es))$)|^[a-zA-Z]+(\.[a-zA-Z]+@ehu\.(eus|es)|@ehu\.(eus|es))$)/";
-              //  $regexPreg="/^.{10,}$/";
+                $regexPreg="/^.{10,}$/";
                //  if(preg_match($regexMail,$_REQUEST['dirCorreo'])){
                      if(preg_match($regexPreg,$_REQUEST['nombrePregunta'])){
                             include 'DbConfig.php';
