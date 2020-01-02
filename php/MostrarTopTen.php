@@ -15,7 +15,7 @@
     }
     $i = 0;
 
-    echo '<table border=1 style="margin-left:auto; margin-right:auto">
+    echo '<table border=1 style="margin-left:auto; margin-right:auto" class=tabla_style>
             <tr>
                 <th>Puesto</th>
                 <th>Nickname</th>
@@ -28,7 +28,7 @@
     while(($row = mysqli_fetch_array($resultado))&&($i<9)){
         echo '
             <tr>
-                <td>#'.($i+1).'</td>
+                <th>#'.($i+1).'</th>
                 <td>'.$row["nickname"].'</td>
                 <td>'.$row["tema"].'</td>
                 <td>'.$row["aciertos"].'</td>

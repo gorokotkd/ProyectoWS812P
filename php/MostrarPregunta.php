@@ -84,8 +84,17 @@
         echo "<tr style=\"text-align: center\">
                 <td colspan=\"4\"><input type=\"button\" id=\"submit\" value=\"Enviar Respuesta\" onclick=\"comprobar({$_REQUEST['id']})\">
             </tr>";
-        echo "</table>";
+        echo "<tr>
+                <td colspan=\"2\"><a id=\"link-like\" href=\"#\" onclick=\"sumarLike()\"><img src=\"../images/like.png\" width=\"52px\" height=\"52px\"></a></td>
+                <td colspan=\"2\"><a id=\"link-dislike\" href=\"#\" onclick=\"sumarDislike()\"><img src=\"../images/dislike.png\" width=\"52px\" height=\"52px\"></a></td>
+            </tr>";
+            echo "<tr>
+                <td id=\"tabla-likes\" colspan=\"2\">{$row['likes']}</td>
+                <td id=\"tabla-dislikes\" colspan=\"2\">{$row['dislikes']}</td>
+            </tr>";
 
+        echo "</table>";
+        echo "<input type=\"text\" id=\"id-pregunta\" value={$_REQUEST['id']} hidden>";
         
     }else{
         echo "<h3 style='color: red'>Necesaria la id de la pregunta</h3>";

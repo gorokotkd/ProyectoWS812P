@@ -8,8 +8,16 @@
             die("Fallo al conectar a MySQL: " .mysqli_connect_error());
         }
 
-        if($_REQUEST['nickname'] != ""){
-            $nickname = $_REQUEST['nickname'];
+        //Tendre un # al final si he dado like o dislike a una pregunta
+        if($string[strlen($_REQUEST['nickname'])-1] == "#"){
+            $nickname_aux = substr($_REQUEST['nickname'], 0, -1); 
+        }else{
+            $nickname_aux = $_REQUEST['nickname'];
+        }
+        
+
+        if($nickname_aux != ""){
+            $nickname = $nickname_aux;
         }else{
             $nickname = "anonimo";
         }

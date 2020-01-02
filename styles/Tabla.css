@@ -2,19 +2,21 @@
   border: solid 1px #000000;
   border-collapse: collapse;
   border-spacing: 0;
+  margin-top: 50px;
   font: normal 13px Arial, sans-serif;
 }
 .tabla_style thead th {
   background-color: #ddefef;
   border: solid 1px #000000;
   color: #336b6b;
-  padding: 10px;
-  text-align: left;
+  padding: 50px;
+  text-align: center;
   text-shadow: 1px 1px 1px #fff;
 }
 .tabla_style tbody td {
   border: solid 1px #000000;
   color: #333;
+  width: 50px;
   padding: 10px;
   text-shadow: 1px 1px 1px #fff;
 }

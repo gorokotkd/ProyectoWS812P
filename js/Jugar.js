@@ -37,6 +37,40 @@ function jugar(){
     
 }
 
+//Sumo un like y deshabilito el enlace para que no se haga click muchas veces.
+function sumarLike(){
+
+    $.ajax({
+        type: "GET",
+        url: "../php/SumarLike.php?id="+$('#id-pregunta').val(),
+        async: false,
+        cache: false,
+        success: function (response) {
+            $('#link-like').attr('onclick', 'valorada()');
+            $('#link-dislike').attr('onclick', 'valorada()');
+            var numLikes = parseInt($('#tabla-likes').text());
+            $('#tabla-likes').text(numLikes+1);
+        }
+    });
+
+}
+
+//Sumo un dislike y deshabilito el enlace para que no se haga click muchas veces.
+function sumarDislike(){
+    $.ajax({
+        type: "GET",
+        url: "../php/SumarDislike.php?id="+$('#id-pregunta').val(),
+        async: false,
+        cache: false,
+        success: function (response) {
+            $('#link-dislike').attr('onclick', 'valorada()');
+            $('#link-like').attr('onclick', 'valorada()');
+            var numLikes = parseInt($('#tabla-dislikes').text());
+            $('#tabla-dislikes').text(numLikes+1);
+        }
+    });
+}
+
 //Almacena en la Bd los aciertos y errores del usuario
 function almacenarRegistro() {
     $.ajax({
@@ -47,6 +81,11 @@ function almacenarRegistro() {
         success: function (response) {
         }
     });
+}
+
+function valorada(){
+    $('#resul').html($('#resul').html()+"<h4 style=\"color: red\">Solo puedes valorar la pregunta una vez.</h4>");
+
 }
 
 //Se ejecuta cuando el usuario decide terminar, aqunque queden preguntas disponibles.
