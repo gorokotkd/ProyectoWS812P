@@ -25,7 +25,7 @@
                 <th>Fecha</th>
             </tr>';
     
-    while(($row = mysqli_fetch_array($resultado))&&($i<9)){
+    while(($row = mysqli_fetch_array($resultado))&&($i<10)){
         echo '
             <tr>
                 <th>#'.($i+1).'</th>

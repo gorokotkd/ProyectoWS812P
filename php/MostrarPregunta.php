@@ -18,13 +18,13 @@
         echo "<table style=\"margin-left: auto; margin-right: auto\">";
         if($row['imagen'] != ""){
             echo "  <tr>
-                    <th colspan='2'>{$row['enunciado']}</th>
-                    <th colspan='2'><img width=\"150\" height=\"150\" src=\"data:image/*;base64, ".$row['imagen']."\" alt=\"Imagen\"/></th>            
+                    <th colspan='2' width=\"170\" >{$row['enunciado']}</th>
+                    <th colspan='2' width=\"170\"><img width=\"150\" height=\"150\" src=\"data:image/*;base64, ".$row['imagen']."\" alt=\"Imagen\"/></th>            
                 </tr>";
         }else{
             echo "<tr>
-                    <th colspan='2'>{$row['enunciado']}</th>
-                    <th colspan='2'><img width=\"150\" height=\"150\" src=\"../images/Imagen_no_disponible.png\" alt=\"Imagen\"/></th>            
+                    <th colspan='2' width=\"170\">{$row['enunciado']}</th>
+                    <th colspan='2' width=\"170\"><img width=\"150\" height=\"150\" src=\"../images/Imagen_no_disponible.png\" alt=\"Imagen\"/></th>            
                 </tr>";
         }
 
