@@ -20,7 +20,6 @@
                 </form>
                 <?php
                     if(isset($_REQUEST['id'])){
-                        //phpinfo();
                         require_once('../lib/nusoap.php');
                         require_once('../lib/class.wsdlcache.php');
 
@@ -30,8 +29,8 @@
 
                         $err = $soapclient->getError();
                         if($err){   echo 'Error al crear el cliente: '.$err;    }
-
-                        $param = array('id' => $_REQUEST['id'], 'ticket' => $ticket);
+                        $id = strip_tags($_REQUEST['id']);
+                        $param = array('id' => $id, 'ticket' => $ticket);
 
                         $resul = $soapclient->call('obtenerPregunta',$param);
 
@@ -41,7 +40,7 @@
                         echo '<pre>' . htmlspecialchars($soapclient->debug_str, ENT_QUOTES) . '</pre>';*/
 
                         if($resul['clave']==-1){
-                            echo "<h3 style='color: red'>No existe la pregunta con id: {$_REQUEST['id']}</h3>";
+                            echo "<h3 style='color: red'>No existe la pregunta con id: {$id}</h3>";
                         }else{
                             echo "<section class=main>";
                             echo "<table border = 1 ><tr bgcolor = \"#9acd32\"><th>Identificador</th><th>Autor</th><th>Enunciado</th><th>Respuesta Correcta</th></tr>";

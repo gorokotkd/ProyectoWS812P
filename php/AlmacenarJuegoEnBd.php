@@ -21,9 +21,9 @@
         }else{
             $nickname = "anonimo";
         }
-        $tema = $_REQUEST['tema'];
-        $aciertos = $_REQUEST['aciertos'];
-        $errores = $_REQUEST['errores'];
+        $tema = strip_tags($_REQUEST['tema']);
+        $aciertos = strip_tags($_REQUEST['aciertos']);
+        $errores = strip_tags($_REQUEST['errores']);
         $hoy = date("d-m-Y");
 		//Creamos la consulta que introducira los datos en el servidor
     

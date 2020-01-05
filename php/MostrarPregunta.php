@@ -99,4 +99,6 @@
     }else{
         echo "<h3 style='color: red'>Necesaria la id de la pregunta</h3>";
     }
+
+    mysqli_close($mysqli);
 ?>

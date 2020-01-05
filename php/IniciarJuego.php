@@ -42,6 +42,8 @@
                 window.location.href='Jugar.php';
               </script>"; 
             }
+
+            mysqli_close($mysqli);
           }
 
             
@@ -68,6 +70,8 @@
             }
 
             return $str;
+
+            mysqli_close($mysqli);
         }
       ?>
 

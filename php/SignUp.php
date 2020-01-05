@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
       <h2>Registro de nuevo usuario.</h2>
-      
+      <h4>Solo válido para emails de la UPV/EHU.</h4>
       <div>
          <form action="SignUp.php" name="fregister" id="fregister" method="post" enctype="multipart/form-data">
             <p>Selecciona el tipo de usuario. *</p>
@@ -85,10 +86,10 @@
             }
             
             
-            $tipo = $_REQUEST['tipoUsu'];
-            $email = $_REQUEST['dirCorreo'];
-            $nombreApellidos = $_REQUEST['nombreApellidos'];
-            $pass = $_REQUEST['pass'];
+            $tipo = strip_tags($_REQUEST['tipoUsu']);
+            $email = strip_tags($_REQUEST['dirCorreo']);
+            $nombreApellidos = strip_tags($_REQUEST['nombreApellidos']);
+            $pass = strip_tags($_REQUEST['pass']);
             $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
             if($_FILES['Imagen']['name'] == ""){               
                 $image = "../images/usuarioAnonimo.jpg";
@@ -96,9 +97,10 @@
                 $image = $_FILES['Imagen']['tmp_name'];             
             }
             //Comprobamos si existe un usuario con ese email.
-            $sql = "SELECT FROM usuarios where email='{$email}';";
-            $resul = mysqli_query($mysqli,$sql,MYSQLI_USE_RESULT);
-            if($resul)
+            $sql = "SELECT * FROM usuarios where email='{$email}';";
+            $resul = mysqli_query($mysqli,$sql);
+            $rowcount=mysqli_num_rows($resul);
+            if($rowcount != 0)
             {
                 die("<h4 style=\"color: red\">Ese email ya esta en uso.</h4><p>Si no recuerdas la contraseña de tu email pulsa en este <a href=\"RestorePass.php\">enlace</a> para restablecerla.</p>");
             }
@@ -113,9 +115,11 @@
             echo "<script>
                     alert('Registro realizado correctamente. Pulsa aceptar para acceder a la pantalla de LogIn.');
                     window.location.href='LogIn.php';
-                </script>";        
+                </script>";
+                
+            mysqli_close($mysqli);
         }
-    
+           
         ?>
       
       

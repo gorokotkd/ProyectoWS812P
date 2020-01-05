@@ -32,8 +32,8 @@
                     if(!$mysqli){
                         die("Fallo al conectar con Mysql: ".mysqli_connect_error());
                     }
-                    $email = $_REQUEST['dirCorreo'];
-                    $pass = $_REQUEST['pass'];
+                    $email = strip_tags($_REQUEST['dirCorreo']);
+                    $pass = strip_tags($_REQUEST['pass']);
                     
                     $sql = "SELECT * FROM usuarios WHERE email='$email';";
                     
@@ -67,9 +67,11 @@
                         echo "Usuario o contraseña incorrectos, prueba de nuevo. <br>";
                         echo "<a href=\"javascript:history.back()\">Volver a atras</a>";
                     }
+
+                    mysqli_close($mysqli);
                 }else{
                     $_SESSION['identificado'] = "SI";
-                    $_SESSION['email'] = $_REQUEST['dirCorreo'];
+                    $_SESSION['email'] = strip_tags($_REQUEST['dirCorreo']);
                     $_SESSION['tipo'] = "user";
                     //$_SESSION['img_google'] = $contenido_imagen = base64_encode(file_get_contents($_REQUEST['img']));
                     $_SESSION['img_google'] = $_REQUEST['img'];

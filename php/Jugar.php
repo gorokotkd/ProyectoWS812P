@@ -43,6 +43,7 @@
                     }
                 }
                 echo"</select>";
+                mysqli_close($mysqli);
             ?>
         </form>
         </div>

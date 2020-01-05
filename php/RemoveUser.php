@@ -1,3 +1,4 @@
+<?php include'../php/Seguridad.php'?>
 <?php
     
     include 'DbConfig.php';

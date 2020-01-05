@@ -91,6 +91,8 @@
             die("Error: ".mysqli_error($mysqli));
         }
         $img = mysqli_fetch_array($resul);
+
+        mysqli_close($mysqli);
         return $img['foto'];
     }
     ?>

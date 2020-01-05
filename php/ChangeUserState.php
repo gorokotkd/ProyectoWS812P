@@ -7,14 +7,15 @@
         die("Fallo al conectar con la base de datos: " .mysqli_connect_error());
     }
 
-    $sql = "UPDATE usuarios SET activo = NOT(activo) WHERE email = '{$_GET['email']}';";
+    $email = strip_tags($_GET['email']);
+    $sql = "UPDATE usuarios SET activo = NOT(activo) WHERE email = '{$email}';";
     $resul = mysqli_query($link,$sql);
     if(!$resul){
         die("Error: ".mysqli_error($link));
     }
 
     
-    $sql = "SELECT * FROM usuarios WHERE email='{$_GET['email']}';";
+    $sql = "SELECT * FROM usuarios WHERE email='{$email}';";
     $resul = mysqli_query($link, $sql, MYSQLI_USE_RESULT);
     if(!$resul){
         die("Error: ".mysqli_error($link));

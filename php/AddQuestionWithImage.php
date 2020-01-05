@@ -1,3 +1,9 @@
+<?php include 'Seguridad.php'?>
+<?php
+    if($_SESSION['tipo']=="admin"){
+        header('location:Layout.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -20,14 +26,14 @@
                       die("Fallo al conectar a MySQL: " .mysqli_connect_error());
                   }
                   //Creamos la consulta que introducira los datos en el servidor
-                  $email = $_REQUEST['dirCorreo'];
-                  $enunciado = $_REQUEST['nombrePregunta'];
-                  $respuestac = $_REQUEST['respuestaCorrecta'];
-                  $respuestai1 = $_REQUEST['respuestaIncorrecta1'];
-                  $respuestai2 = $_REQUEST['respuestaIncorrecta2'];
-                  $respuestai3 = $_REQUEST['respuestaIncorrecta3'];
-                  $complejidad = $_REQUEST['complejidad'];
-                  $tema = $_REQUEST['temaPregunta'];
+                  $email = strip_tags($_REQUEST['dirCorreo']);
+                  $enunciado = strip_tags($_REQUEST['nombrePregunta']);
+                  $respuestac = strip_tags($_REQUEST['respuestaCorrecta']);
+                  $respuestai1 = strip_tags($_REQUEST['respuestaIncorrecta1']);
+                  $respuestai2 = strip_tags($_REQUEST['respuestaIncorrecta2']);
+                  $respuestai3 = strip_tags($_REQUEST['respuestaIncorrecta3']);
+                  $complejidad = strip_tags($_REQUEST['complejidad']);
+                  $tema = ($_REQUEST['temaPregunta']);
                   if($_FILES['Imagen']['name'] == ""){
                       $contenido_imagen = base64_encode("");
                       //añado una imagen vacia.
@@ -61,21 +67,21 @@
               $ficheroPreguntas = simplexml_load_file('../xml/Questions.xml');
               
               $assessmentItem = $ficheroPreguntas->addChild('assessmentItem');
-              $assessmentItem->addAttribute('subject',$_REQUEST['temaPregunta']);
-              $assessmentItem->addAttribute('author',$_REQUEST['dirCorreo']);
+              $assessmentItem->addAttribute('subject',strip_tags($_REQUEST['temaPregunta']));
+              $assessmentItem->addAttribute('author',strip_tags($_REQUEST['dirCorreo']));
               
               $itemBody = $assessmentItem->addChild('itemBody');
                   
-              $itemBody->addChild('p',$_REQUEST['nombrePregunta']);
+              $itemBody->addChild('p',strip_tags($_REQUEST['nombrePregunta']));
               
               $correctResponse = $assessmentItem->addChild('correctResponse');
-              $correctResponse->addChild('value',$_REQUEST['respuestaCorrecta']);
+              $correctResponse->addChild('value',strip_tags($_REQUEST['respuestaCorrecta']));
               
               $incorrectResponses = $assessmentItem->addChild('incorrectResponses');
               
-              $incorrectResponses->addChild('value',$_REQUEST['respuestaIncorrecta1']);
-              $incorrectResponses->addChild('value',$_REQUEST['respuestaIncorrecta2']);
-              $incorrectResponses->addChild('value',$_REQUEST['respuestaIncorrecta3']);
+              $incorrectResponses->addChild('value',strip_tags($_REQUEST['respuestaIncorrecta1']));
+              $incorrectResponses->addChild('value',strip_tags($_REQUEST['respuestaIncorrecta2']));
+              $incorrectResponses->addChild('value',strip_tags($_REQUEST['respuestaIncorrecta3']));
             
               $ficheroPreguntas->asXML('../xml/Questions.xml') or die("Error al guardar el fichero Questions.xml");
               echo "Registro añadido en XML.<br>";
