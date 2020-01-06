@@ -15,6 +15,18 @@
     <div>
          <?php
             if(isset($_REQUEST['dirCorreo'])){
+
+              //Compruebo el formato del archivo
+              if($_FILES['Imagen']['name'] != ""){
+                $allowed = array('gif', 'png', 'jpg');
+                $filename = $_FILES['Imagen']['name'];
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                if (!in_array($ext, $allowed)) {
+                    die("Error formato de imagen no soportado.");
+                }
+              }
+              
+
               //  $regexMail="/((^[a-zA-Z]+(([0-9]{3})+@ikasle\.ehu\.(eus|es))$)|^[a-zA-Z]+(\.[a-zA-Z]+@ehu\.(eus|es)|@ehu\.(eus|es))$)/";
                 $regexPreg="/^.{10,}$/";
                 if(preg_match($regexPreg,$_REQUEST['nombrePregunta'])){
@@ -34,6 +46,7 @@
                   $respuestai3 = strip_tags($_REQUEST['respuestaIncorrecta3']);
                   $complejidad = strip_tags($_REQUEST['complejidad']);
                   $tema = ($_REQUEST['temaPregunta']);
+
                   if($_FILES['Imagen']['name'] == ""){
                       $contenido_imagen = base64_encode("");
                       //añado una imagen vacia.

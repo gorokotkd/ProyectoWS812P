@@ -59,7 +59,7 @@
             <p>Introduce el tema de la pregunta: *</p>
             <input type="text" size="60" id="temaPregunta" name="temaPregunta" required>
             <div id="selector">
-            <input type="file" id="file" accept="image/*" name="Imagen">
+            <input type="file" id="file" accept="image/png, image/jpeg, image/gif*" name="Imagen">
             </div>
             <p> <input type="button" id="submit" value="Enviar" onclick="enviarForm()">
             <input type="reset" id="reset" value="Limpiar Formulario" >

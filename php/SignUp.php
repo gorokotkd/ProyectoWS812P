@@ -44,6 +44,16 @@
                 $regexProf = "/^[a-zA-Z]+(\.[a-zA-Z]+@ehu\.(eus|es)|@ehu\.(eus|es))$/";
                 $regexPass = "/^.{6,}$/";
                 $regexNombre = "/(\w.+\s).+/";
+
+                //Compruebo el formato de la imagen.
+                if($_FILES['Imagen']['name'] != ""){
+                    $allowed = array('gif', 'png', 'jpg');
+                    $filename = $_FILES['Imagen']['name'];
+                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                    if (!in_array($ext, $allowed)) {
+                        die("Error formato de imagen no soportado.");
+                    }
+                  }
                 
                 $resulAlu = preg_match($regexAlu,$_REQUEST['dirCorreo']);
                 if(($_REQUEST['tipoUsu']=="1") && $resulAlu){
